@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Complaints | BK's Hostels</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .topbar {
+            background: #1f3c88;
+            color: white;
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            background: white;
+            color: #1f3c88;
+
+            border: none;
+
+            padding: 9px 16px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+
+            margin: 30px auto;
+        }
+
+        .title-box,
+        .section {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        h1,
+        h2 {
+            color: #1f3c88;
+        }
+
+        .title-box p {
+            color: #6b7280;
+
+            margin-top: 8px;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            margin-top: 6px;
+        }
+
+        textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #1f3c88;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background: #17306e;
+        }
+
+        .message {
+            display: none;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            margin-bottom: 15px;
+        }
+
+        .success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 13px;
+
+            text-align: left;
+
+            border-bottom:
+                1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f8fafc;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .pending {
+            color: #92400e;
+        }
+
+        .resolved {
+            color: #166534;
+        }
+
+        .empty {
+            padding: 20px;
+
+            background: #fff7ed;
+
+            color: #9a3412;
+
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            color: #6b7280;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+        BK's Hostels
+    </div>
+
+    <button
+        class="back-btn"
+        onclick="goBack()"
+    >
+        Back
+    </button>
+
+</header>
+
+
+<main class="container">
+
+
+    <section class="title-box">
+
+        <h1>
+            My Complaints
+        </h1>
+
+        <p>
+            Raise and track your hostel complaints.
+        </p>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>
+            Raise New Complaint
+        </h2>
+
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+
+        <form id="complaintForm">
+
+
+            <div>
+
+                <label>
+                    Category
+                </label>
+
+                <select
+                    id="category"
+                    required
+                >
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="ROOM">
+                        Room
+                    </option>
+
+                    <option value="ELECTRICAL">
+                        Electrical
+                    </option>
+
+                    <option value="WATER">
+                        Water
+                    </option>
+
+                    <option value="CLEANLINESS">
+                        Cleanliness
+                    </option>
+
+                    <option value="FOOD">
+                        Food
+                    </option>
+
+                    <option value="OTHER">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Subject
+                </label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Enter complaint subject"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Describe your complaint"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Priority
+                </label>
+
+                <select id="priority">
+
+                    <option value="LOW">
+                        Low
+                    </option>
+
+                    <option
+                        value="MEDIUM"
+                        selected
+                    >
+                        Medium
+                    </option>
+
+                    <option value="HIGH">
+                        High
+                    </option>
+
+                    <option value="URGENT">
+                        Urgent
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Submit Complaint
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>
+            Complaint History
+        </h2>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Subject
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Priority
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="complaintTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    BK's Hostels —
+    Student Portal
+
+</footer>
+
+
+<script>
+
+const token =
+    localStorage.getItem("token");
+
+
+if (!token) {
+
+    window.location.href =
+        "student-login.html";
+
+}
+
+
+function goBack() {
+
+    window.location.href =
+        "student-dashboard.html";
+
+}
+
+
+function showMessage(
+    text,
+    type
+) {
+
+    const box =
+        document.getElementById(
+            "message"
+        );
+
+    box.textContent = text;
+
+    box.className =
+        "message " + type;
+
+    box.style.display =
+        "block";
+
+}
+
+
+async function loadComplaints() {
+
+    try {
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/student-services/complaints",
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+            throw new Error(
+                result.message
+            );
+        }
+
+
+        const complaints =
+            result.complaints || [];
+
+
+        const table =
+            document.getElementById(
+                "complaintTable"
+            );
+
+
+        if (complaints.length === 0) {
+
+            table.innerHTML = `
+                <tr>
+                    <td colspan="5">
+                        No complaints found.
+                    </td>
+                </tr>
+            `;
+
+            return;
+        }
+
+
+        table.innerHTML =
+            complaints.map(
+                complaint => `
+                    <tr>
+
+                        <td>
+                            ${complaint.subject}
+                        </td>
+
+                        <td>
+                            ${complaint.category}
+                        </td>
+
+                        <td>
+                            ${complaint.priority}
+                        </td>
+
+                        <td class="status ${
+                            complaint.status === "RESOLVED"
+                                ? "resolved"
+                                : "pending"
+                        }">
+                            ${complaint.status}
+                        </td>
+
+                        <td>
+                            ${complaint.created_at
+                                ? new Date(
+                                    complaint.created_at
+                                  ).toLocaleDateString("en-IN")
+                                : "-"
+                            }
+                        </td>
+
+                    </tr>
+                `
+            ).join("");
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showMessage(
+            error.message,
+            "error"
+        );
+
+    }
+
+}
+
+
+document
+    .getElementById("complaintForm")
+    .addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "http://localhost:5000/api/student-services/complaints",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json",
+
+                                Authorization:
+                                    `Bearer ${token}`
+                            },
+
+                            body: JSON.stringify({
+
+                                category:
+                                    document.getElementById(
+                                        "category"
+                                    ).value,
+
+                                subject:
+                                    document.getElementById(
+                                        "subject"
+                                    ).value,
+
+                                description:
+                                    document.getElementById(
+                                        "description"
+                                    ).value,
+
+                                priority:
+                                    document.getElementById(
+                                        "priority"
+                                    ).value
+
+                            })
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (!response.ok) {
+                    throw new Error(
+                        result.message
+                    );
+                }
+
+
+                showMessage(
+                    "Complaint submitted successfully.",
+                    "success"
+                );
+
+
+                document
+                    .getElementById(
+                        "complaintForm"
+                    )
+                    .reset();
+
+
+                loadComplaints();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                showMessage(
+                    error.message,
+                    "error"
+                );
+
+            }
+
+        }
+    );
+
+
+loadComplaints();
+
+</script>
+
+
+</body>
+
+</html>

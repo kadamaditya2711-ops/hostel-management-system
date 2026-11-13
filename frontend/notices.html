@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notices - Hostel Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Notice Management</h1>
+            <p>Create and manage hostel notices</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- ADD NOTICE -->
+
+    <div class="form-card">
+
+        <h2>Create Notice</h2>
+
+        <form id="noticeForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Title</label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Hostel Meeting"
+                        required>
+                </div>
+
+                <div>
+                    <label>Category</label>
+
+                    <input
+                        type="text"
+                        id="category"
+                        placeholder="GENERAL">
+                </div>
+
+                <div>
+                    <label>Priority</label>
+
+                    <select id="priority" required>
+
+                        <option value="NORMAL">
+                            NORMAL
+                        </option>
+
+                        <option value="IMPORTANT">
+                            IMPORTANT
+                        </option>
+
+                        <option value="URGENT">
+                            URGENT
+                        </option>
+
+                    </select>
+                </div>
+
+                <div>
+                    <label>Target Type</label>
+
+                    <select id="target_type" required>
+
+                        <option value="ALL">
+                            ALL
+                        </option>
+
+                        <option value="BOYS">
+                            BOYS
+                        </option>
+
+                        <option value="GIRLS">
+                            GIRLS
+                        </option>
+
+                        <option value="BLOCK">
+                            BLOCK
+                        </option>
+
+                    </select>
+                </div>
+
+                <div id="blockField" class="hidden">
+
+                    <label>Target Block</label>
+
+                    <select id="target_block_id">
+
+                        <option value="">
+                            Select Block
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group-full">
+
+                <label>Description</label>
+
+                <textarea
+                    id="description"
+                    rows="4"
+                    required>
+                </textarea>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Expires At</label>
+
+                    <input
+                        type="datetime-local"
+                        id="expires_at">
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Publish Notice
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- NOTICES -->
+
+    <div class="table-card">
+
+        <h2>All Notices</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Priority</th>
+                        <th>Target</th>
+                        <th>Status</th>
+                        <th>Published</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="noticesBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/notices.js"></script>
+
+</body>
+</html>

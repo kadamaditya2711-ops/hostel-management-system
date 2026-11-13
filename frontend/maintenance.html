@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maintenance - Hostel Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Maintenance Management</h1>
+            <p>Submit and manage maintenance requests</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- Submit Maintenance Request -->
+
+    <div class="form-card">
+
+        <h2>Submit Maintenance Request</h2>
+
+        <form id="maintenanceForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Student</label>
+
+                    <select id="student_id" required>
+                        <option value="">
+                            Select Student
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Hostel</label>
+
+                    <select id="hostel_id" required>
+                        <option value="">
+                            Select Hostel
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Room</label>
+
+                    <select id="room_id" required>
+                        <option value="">
+                            Select Room
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Category</label>
+
+                    <input
+                        type="text"
+                        id="category"
+                        placeholder="ELECTRICAL"
+                        required>
+                </div>
+
+                <div>
+                    <label>Priority</label>
+
+                    <select id="priority">
+
+                        <option value="LOW">
+                            LOW
+                        </option>
+
+                        <option value="MEDIUM" selected>
+                            MEDIUM
+                        </option>
+
+                        <option value="HIGH">
+                            HIGH
+                        </option>
+
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group-full">
+
+                <label>Description</label>
+
+                <textarea
+                    id="description"
+                    rows="4"
+                    placeholder="Describe the maintenance issue"
+                    required>
+                </textarea>
+
+            </div>
+
+
+            <button type="submit">
+                Submit Request
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- Maintenance Requests -->
+
+    <div class="table-card">
+
+        <h2>Maintenance Requests</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Hostel</th>
+                        <th>Room</th>
+                        <th>Category</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="maintenanceBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/maintenance.js"></script>
+
+</body>
+</html>

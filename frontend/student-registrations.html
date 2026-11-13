@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Registrations | BK's Hostels</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <style>
+
+        .page-content {
+            padding: 30px;
+        }
+
+        .page-heading {
+            margin-bottom: 25px;
+        }
+
+        .page-heading span {
+            color: #2563eb;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .page-heading h1 {
+            margin-top: 5px;
+            font-size: 28px;
+        }
+
+        .page-heading p {
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .summary-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+
+            padding: 18px 22px;
+            margin-bottom: 22px;
+
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+        }
+
+        .summary-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #fef3c7;
+            color: #b45309;
+
+            font-size: 20px;
+        }
+
+        .summary-card small {
+            display: block;
+            color: #64748b;
+            font-size: 9px;
+        }
+
+        .summary-card strong {
+            display: block;
+            margin-top: 2px;
+            font-size: 24px;
+        }
+
+        .registration-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .registration-header {
+            padding: 18px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .registration-header h2 {
+            font-size: 16px;
+        }
+
+        .registration-header p {
+            color: #64748b;
+            font-size: 10px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 850px;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 13px 15px;
+            background: #f8fafc;
+
+            text-align: left;
+
+            color: #64748b;
+
+            font-size: 9px;
+            font-weight: 800;
+        }
+
+        td {
+            padding: 14px 15px;
+
+            border-top: 1px solid #f1f5f9;
+
+            color: #334155;
+            font-size: 11px;
+        }
+
+        tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        .student-name {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .student-username {
+            color: #94a3b8;
+            font-size: 9px;
+            margin-top: 2px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            padding: 5px 9px;
+            border-radius: 999px;
+
+            background: #fef3c7;
+            color: #92400e;
+
+            font-size: 8px;
+            font-weight: 800;
+        }
+
+        .view-btn {
+            padding: 7px 12px;
+
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+
+            background: #eff6ff;
+            color: #2563eb;
+
+            font-size: 9px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .view-btn:hover {
+            background: #dbeafe;
+        }
+
+        .empty-state {
+            padding: 55px 20px;
+            text-align: center;
+        }
+
+        .empty-state .empty-icon {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state h3 {
+            font-size: 17px;
+        }
+
+        .empty-state p {
+            color: #64748b;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        /* Modal */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: rgba(2, 6, 23, 0.65);
+
+            z-index: 3000;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-box {
+            width: min(760px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+
+            background: #fff;
+            border-radius: 20px;
+        }
+
+        .modal-header {
+            padding: 20px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .modal-header h2 {
+            font-size: 19px;
+        }
+
+        .close-btn {
+            width: 34px;
+            height: 34px;
+
+            border: none;
+            border-radius: 9px;
+
+            background: #f1f5f9;
+            color: #334155;
+
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .modal-body {
+            padding: 22px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .detail-item {
+            padding: 13px;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 11px;
+
+            background: #f8fafc;
+        }
+
+        .detail-item.full {
+            grid-column: 1 / -1;
+        }
+
+        .detail-item small {
+            display: block;
+
+            color: #64748b;
+
+            font-size: 9px;
+        }
+
+        .detail-item strong {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #0f172a;
+
+            font-size: 12px;
+        }
+
+        .modal-footer {
+            padding: 18px 22px;
+
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .approve-btn,
+        .reject-btn {
+            border: none;
+            border-radius: 9px;
+
+            padding: 10px 17px;
+
+            color: #fff;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .approve-btn {
+            background: #16a34a;
+        }
+
+        .approve-btn:hover {
+            background: #15803d;
+        }
+
+        .reject-btn {
+            background: #dc2626;
+        }
+
+        .reject-btn:hover {
+            background: #b91c1c;
+        }
+
+        .modal-message {
+            margin-right: auto;
+
+            color: #64748b;
+
+            font-size: 10px;
+
+            align-self: center;
+        }
+
+        @media (max-width: 700px) {
+
+            .page-content {
+                padding: 20px;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-item.full {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                BK
+            </div>
+
+            <div>
+                <h2>BK's Hostels</h2>
+                <span>Management Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-title">MAIN</p>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="students.html" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="hostels.html" class="nav-item">
+                <span>🏠</span>
+                Hostels
+            </a>
+
+            <a href="hostel-management.html" class="nav-item">
+                <span>🛏️</span>
+                Rooms & Beds
+            </a>
+
+            <a href="allocations.html" class="nav-item">
+                <span>📌</span>
+                Allocations
+            </a>
+
+            <a href="room-transfers.html" class="nav-item">
+                <span>🔄</span>
+                Room Transfer
+            </a>
+
+            <p class="nav-title">MANAGEMENT</p>
+
+            <a href="student-registrations.html"
+               class="nav-item active">
+                <span>📝</span>
+                Student Registrations
+            </a>
+
+            <a href="fees.html" class="nav-item">
+                <span>₹</span>
+                Fees & Payments
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="complaints.html" class="nav-item">
+                <span>💬</span>
+                Complaints
+            </a>
+
+            <a href="maintenance.html" class="nav-item">
+                <span>🔧</span>
+                Maintenance
+            </a>
+
+            <a href="visitors.html" class="nav-item">
+                <span>👥</span>
+                Visitors
+            </a>
+
+            <a href="notices.html" class="nav-item">
+                <span>📢</span>
+                Notices
+            </a>
+
+            <a href="wardens.html" class="nav-item">
+                <span>🛡️</span>
+                Wardens
+            </a>
+
+            <a href="checkin-checkout.html" class="nav-item">
+                <span>↔</span>
+                Check-In / Out
+            </a>
+
+            <p class="nav-title">ACCOUNT</p>
+
+            <a href="index.html" class="nav-item">
+                <span>🌐</span>
+                Public Website
+            </a>
+
+            <a href="index.html#login"
+               class="nav-item">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-btn">
+                    ☰
+                </button>
+
+                <div>
+
+                    <p class="topbar-small">
+                        BK'S HOSTELS
+                    </p>
+
+                    <h1>
+                        Student Registrations
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="user-box">
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <strong id="adminName">
+                            Admin
+                        </strong>
+
+                        <small>
+                            Administrator
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+
+            <div class="page-heading">
+
+                <span>
+                    ADMIN APPROVAL
+                </span>
+
+                <h1>
+                    Student Registration Requests
+                </h1>
+
+                <p>
+                    Review new student registrations and approve
+                    or reject account access.
+                </p>
+
+            </div>
+
+
+            <!-- Summary -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <small>
+                        PENDING REGISTRATIONS
+                    </small>
+
+                    <strong id="pendingCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Table -->
+
+            <div class="registration-card">
+
+                <div class="registration-header">
+
+                    <div>
+
+                        <h2>
+                            New Registrations
+                        </h2>
+
+                        <p>
+                            Students waiting for admin approval
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    STUDENT
+                                </th>
+
+                                <th>
+                                    COLLEGE
+                                </th>
+
+                                <th>
+                                    COURSE
+                                </th>
+
+                                <th>
+                                    GENDER
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="registrationTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Empty -->
+
+                <div
+                    id="emptyState"
+                    class="empty-state"
+                    style="display:none;"
+                >
+
+                    <div class="empty-icon">
+                        ✅
+                    </div>
+
+                    <h3>
+                        No Pending Registrations
+                    </h3>
+
+                    <p>
+                        All student registration requests
+                        have been processed.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- MODAL -->
+
+    <div
+        class="modal"
+        id="studentModal"
+    >
+
+        <div class="modal-box">
+
+
+            <div class="modal-header">
+
+                <h2>
+                    Student Details
+                </h2>
+
+                <button
+                    class="close-btn"
+                    id="closeModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                class="modal-body"
+                id="studentDetails"
+            >
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <p
+                    class="modal-message"
+                    id="modalMessage"
+                ></p>
+
+                <button
+                    class="reject-btn"
+                    id="rejectBtn"
+                >
+                    Reject
+                </button>
+
+                <button
+                    class="approve-btn"
+                    id="approveBtn"
+                >
+                    Approve Student
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/student-registrations.js"></script>
+
+</body>
+
+</html>

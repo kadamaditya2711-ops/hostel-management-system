@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hostel Details | BK's Hostels</title>
+
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <div class="brand">
+                <div class="brand-logo">BK</div>
+
+                <div class="brand-text">
+                    <h2>BK's Hostels</h2>
+                    <span>Hostel Management System</span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="index.html#hostels">Hostels</a>
+                <a href="index.html#facilities">Facilities</a>
+                <a href="index.html#gallery">Gallery</a>
+                <a href="index.html#contact">Contact Us</a>
+                <a href="index.html#login" class="nav-login-btn">Login</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span id="hostelType">HOSTEL</span>
+
+                <h2 id="hostelTitle">
+                    BK's Hostels
+                </h2>
+
+                <p id="hostelDescription">
+                    Comfortable and secure accommodation for students.
+                </p>
+
+            </div>
+
+
+            <div class="hostel-grid">
+
+                <div class="hostel-card">
+
+                    <div class="hostel-image">
+                        <img
+                            id="hostelImage"
+                            src="images/hostel-exterior.jpg"
+                            alt="Hostel"
+                        >
+                    </div>
+
+                    <div class="hostel-content">
+
+                        <h3 id="hostelHeading">
+                            Hostel Facilities
+                        </h3>
+
+                        <p>
+                            BK's Hostels provides a safe, clean and
+                            comfortable environment for students.
+                        </p>
+
+                        <div class="about-points">
+
+                            <div>
+                                <span>✓</span>
+                                <p>Comfortable Rooms</p>
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                <p>24x7 Security</p>
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                <p>Study Area</p>
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                <p>Maintenance Support</p>
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                <p>Dining Facilities</p>
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                <p>Student Friendly Environment</p>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <a href="index.html#contact" class="btn btn-primary">
+                            Contact Us
+                        </a>
+
+                        <a href="index.html#hostels" class="btn btn-outline" style="color:#0f172a; border-color:#cbd5e1;">
+                            ← Back to Hostels
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BK's Hostels. All Rights Reserved.
+            </p>
+
+            <p>
+                Hostel Management System
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+
+        const type = params.get("type");
+
+        const hostelType = document.getElementById("hostelType");
+        const hostelTitle = document.getElementById("hostelTitle");
+        const hostelDescription = document.getElementById("hostelDescription");
+        const hostelImage = document.getElementById("hostelImage");
+        const hostelHeading = document.getElementById("hostelHeading");
+
+
+        if (type === "girls") {
+
+            hostelType.textContent = "GIRLS HOSTEL";
+
+            hostelTitle.textContent = "Girls Hostel";
+
+            hostelDescription.textContent =
+                "Safe, clean and comfortable accommodation designed for female students.";
+
+            hostelImage.src = "images/girls-hostel.jpg";
+
+            hostelImage.alt = "Girls Hostel";
+
+            hostelHeading.textContent = "Girls Hostel Facilities";
+
+        } else {
+
+            hostelType.textContent = "BOYS HOSTEL";
+
+            hostelTitle.textContent = "Boys Hostel";
+
+            hostelDescription.textContent =
+                "Comfortable and secure accommodation designed for male students.";
+
+            hostelImage.src = "images/boys-hostel.jpg";
+
+            hostelImage.alt = "Boys Hostel";
+
+            hostelHeading.textContent = "Boys Hostel Facilities";
+
+        }
+
+    </script>
+
+</body>
+</html>

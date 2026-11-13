@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hostel Management</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <!-- Header -->
+    <div class="page-header">
+
+        <div>
+            <h1>Hostel Management</h1>
+            <p>Manage hostels, blocks, floors, rooms and beds</p>
+        </div>
+
+        <button
+            id="backBtn"
+            class="secondary-btn">
+            Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         ADD HOSTEL
+    ========================== -->
+
+    <div class="form-card">
+
+        <h2>Add Hostel</h2>
+
+        <form id="hostelForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Hostel Name</label>
+
+                    <input
+                        type="text"
+                        id="hostel_name"
+                        placeholder="Boys Hostel"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Gender</label>
+
+                    <select id="hostel_gender" required>
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="MALE">
+                            Male
+                        </option>
+
+                        <option value="FEMALE">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+                    <label>Status</label>
+
+                    <select id="hostel_status">
+
+                        <option value="ACTIVE">
+                            ACTIVE
+                        </option>
+
+                        <option value="INACTIVE">
+                            INACTIVE
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group-full">
+
+                <label>Address</label>
+
+                <textarea
+                    id="hostel_address"
+                    rows="3">
+                </textarea>
+
+            </div>
+
+
+            <button type="submit">
+                Add Hostel
+            </button>
+
+            <p id="hostelMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- HOSTELS TABLE -->
+
+    <div class="table-card">
+
+        <h2>Hostels</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="hostelsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ADD BLOCK
+    ========================== -->
+
+    <div class="form-card">
+
+        <h2>Add Block</h2>
+
+        <form id="blockForm">
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Hostel</label>
+
+                    <select
+                        id="block_hostel"
+                        required>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>Block Name</label>
+
+                    <input
+                        type="text"
+                        id="block_name"
+                        placeholder="Block A"
+                        required>
+
+                </div>
+
+
+                <div>
+
+                    <label>Status</label>
+
+                    <select id="block_status">
+
+                        <option value="ACTIVE">
+                            ACTIVE
+                        </option>
+
+                        <option value="INACTIVE">
+                            INACTIVE
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Add Block
+            </button>
+
+            <p id="blockMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- BLOCKS -->
+
+    <div class="table-card">
+
+        <h2>Blocks</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Hostel</th>
+                        <th>Block</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="blocksBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ADD FLOOR
+    ========================== -->
+
+    <div class="form-card">
+
+        <h2>Add Floor</h2>
+
+        <form id="floorForm">
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Block</label>
+
+                    <select
+                        id="floor_block"
+                        required>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>Floor Number</label>
+
+                    <input
+                        type="number"
+                        id="floor_number"
+                        min="0"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Add Floor
+            </button>
+
+            <p id="floorMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- FLOORS -->
+
+    <div class="table-card">
+
+        <h2>Floors</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Hostel</th>
+                        <th>Block</th>
+                        <th>Floor</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="floorsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ADD ROOM
+    ========================== -->
+
+    <div class="form-card">
+
+        <h2>Add Room</h2>
+
+        <form id="roomForm">
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Floor</label>
+
+                    <select
+                        id="room_floor"
+                        required>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>Room Number</label>
+
+                    <input
+                        type="text"
+                        id="room_number"
+                        placeholder="101"
+                        required>
+
+                </div>
+
+
+                <div>
+
+                    <label>Room Type</label>
+
+                    <select id="room_type">
+
+                        <option value="SINGLE">
+                            SINGLE
+                        </option>
+
+                        <option value="SHARED">
+                            SHARED
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>Capacity</label>
+
+                    <input
+                        type="number"
+                        id="room_capacity"
+                        min="1"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Add Room
+            </button>
+
+            <p id="roomMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- ROOMS -->
+
+    <div class="table-card">
+
+        <h2>Rooms</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Hostel</th>
+                        <th>Block</th>
+                        <th>Floor</th>
+                        <th>Room</th>
+                        <th>Type</th>
+                        <th>Capacity</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="roomsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ADD BED
+    ========================== -->
+
+    <div class="form-card">
+
+        <h2>Add Bed</h2>
+
+        <form id="bedForm">
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Room</label>
+
+                    <select
+                        id="bed_room"
+                        required>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>Bed Number</label>
+
+                    <input
+                        type="number"
+                        id="bed_number"
+                        min="1"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Add Bed
+            </button>
+
+            <p id="bedMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- BEDS -->
+
+    <div class="table-card">
+
+        <h2>Beds</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Hostel</th>
+                        <th>Block</th>
+                        <th>Floor</th>
+                        <th>Room</th>
+                        <th>Bed</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="bedsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/hostel-management.js"></script>
+
+</body>
+</html>

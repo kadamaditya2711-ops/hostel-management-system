@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | BK's Hostels</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <!-- Brand -->
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                BK
+            </div>
+
+            <div>
+
+                <h2>
+                    BK's Hostels
+                </h2>
+
+                <span>
+                    Management Portal
+                </span>
+
+            </div>
+
+        </div>
+        <a
+    href="student-registrations.html"
+    class="nav-item"
+>
+    <span>📝</span>
+    Student Registrations
+</a>
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+
+            <p class="nav-title">
+                MAIN
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item active"
+            >
+                <span>⌂</span>
+                <strong>Dashboard</strong>
+            </a>
+
+
+            <a
+                href="students.html"
+                class="nav-item"
+            >
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+
+            <a
+                href="hostels.html"
+                class="nav-item"
+            >
+                <span>🏠</span>
+                Hostels
+            </a>
+
+
+            <a
+                href="hostel-management.html"
+                class="nav-item"
+            >
+                <span>🛏️</span>
+                Rooms & Beds
+            </a>
+
+
+            <a
+                href="allocations.html"
+                class="nav-item"
+            >
+                <span>📌</span>
+                Allocations
+            </a>
+
+
+            <a
+                href="room-transfers.html"
+                class="nav-item"
+            >
+                <span>🔄</span>
+                Room Transfer
+            </a>
+
+
+            <p class="nav-title">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="fees.html"
+                class="nav-item"
+            >
+                <span>₹</span>
+                Fees & Payments
+            </a>
+
+
+            <a
+                href="attendance.html"
+                class="nav-item"
+            >
+                <span>✓</span>
+                Attendance
+            </a>
+
+
+            <a
+                href="complaints.html"
+                class="nav-item"
+            >
+                <span>💬</span>
+                Complaints
+            </a>
+
+
+            <a
+                href="maintenance.html"
+                class="nav-item"
+            >
+                <span>🔧</span>
+                Maintenance
+            </a>
+
+
+            <a
+                href="visitors.html"
+                class="nav-item"
+            >
+                <span>👥</span>
+                Visitors
+            </a>
+
+
+            <a
+                href="notices.html"
+                class="nav-item"
+            >
+                <span>📢</span>
+                Notices
+            </a>
+
+
+            <a
+                href="wardens.html"
+                class="nav-item"
+            >
+                <span>🛡️</span>
+                Wardens
+            </a>
+
+
+            <a
+                href="checkin-checkout.html"
+                class="nav-item"
+            >
+                <span>↔</span>
+                Check-In / Out
+            </a>
+
+
+            <p class="nav-title">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="index.html"
+                class="nav-item"
+            >
+                <span>🌐</span>
+                Public Website
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item logout-link"
+                id="logoutBtn"
+            >
+                <span>↪</span>
+                Logout
+            </a>
+
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN AREA
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <p class="topbar-small">
+                        BK'S HOSTELS
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <div class="date-box">
+
+                    <span>
+                        📅
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Today
+                        </small>
+
+                        <strong id="todayDate">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="user-box">
+
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+
+                    <div>
+
+                        <strong id="userName">
+                            Admin
+                        </strong>
+
+                        <small id="userRole">
+                            Administrator
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- PAGE CONTENT -->
+
+        <div class="dashboard-content">
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome-banner">
+
+
+                <div>
+
+                    <span>
+                        WELCOME BACK 👋
+                    </span>
+
+                    <h2>
+                        Manage your hostel smarter.
+                    </h2>
+
+                    <p>
+                        Monitor students, rooms, fees,
+                        complaints and daily hostel activities
+                        from one place.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    🏠
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STAT CARDS
+            ================================================== -->
+
+            <section class="stats-grid">
+
+
+                <!-- Students -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon blue">
+                            👨‍🎓
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Total Students
+                    </p>
+
+                    <h3 id="totalStudents">
+                        0
+                    </h3>
+
+                    <small>
+                        Active student records
+                    </small>
+
+                </div>
+
+
+
+                <!-- Hostels -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon purple">
+                            🏠
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Hostels
+                    </p>
+
+                    <h3 id="totalHostels">
+                        0
+                    </h3>
+
+                    <small>
+                        Registered hostels
+                    </small>
+
+                </div>
+
+
+
+                <!-- Rooms -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon orange">
+                            🚪
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Total Rooms
+                    </p>
+
+                    <h3 id="totalRooms">
+                        0
+                    </h3>
+
+                    <small>
+                        Hostel rooms
+                    </small>
+
+                </div>
+
+
+
+                <!-- Beds -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon green">
+                            🛏️
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Available Beds
+                    </p>
+
+                    <h3 id="availableBeds">
+                        0
+                    </h3>
+
+                    <small>
+                        Beds available
+                    </small>
+
+                </div>
+
+
+
+                <!-- Allocations -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon cyan">
+                            📌
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Active Allocations
+                    </p>
+
+                    <h3 id="activeAllocations">
+                        0
+                    </h3>
+
+                    <small>
+                        Current allocations
+                    </small>
+
+                </div>
+
+
+
+                <!-- Complaints -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon red">
+                            💬
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Pending Complaints
+                    </p>
+
+                    <h3 id="pendingComplaints">
+                        0
+                    </h3>
+
+                    <small>
+                        Need attention
+                    </small>
+
+                </div>
+
+
+
+                <!-- Maintenance -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon yellow">
+                            🔧
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Maintenance
+                    </p>
+
+                    <h3 id="maintenanceRequests">
+                        0
+                    </h3>
+
+                    <small>
+                        Active requests
+                    </small>
+
+                </div>
+
+
+
+                <!-- Fees -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon emerald">
+                            ₹
+                        </div>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Pending Fees
+                    </p>
+
+                    <h3 id="pendingFees">
+                        ₹0
+                    </h3>
+
+                    <small>
+                        Outstanding amount
+                    </small>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <section class="content-section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span>
+                            QUICK ACTIONS
+                        </span>
+
+                        <h2>
+                            Manage Hostel
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <a
+                        href="students.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-icon blue">
+                            👨‍🎓
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Students
+                            </h3>
+
+                            <p>
+                                Add & manage students
+                            </p>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="allocations.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-icon green">
+                            🛏️
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Allocate Bed
+                            </h3>
+
+                            <p>
+                                Manage room allocation
+                            </p>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="fees.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-icon purple">
+                            ₹
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Fees
+                            </h3>
+
+                            <p>
+                                Payments & pending fees
+                            </p>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="complaints.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-icon red">
+                            💬
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Complaints
+                            </h3>
+
+                            <p>
+                                Track complaints
+                            </p>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RECENT ACTIVITY
+            ================================================== -->
+
+            <section class="content-section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span>
+                            RECENT ACTIVITY
+                        </span>
+
+                        <h2>
+                            Hostel Overview
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tables-grid">
+
+
+                    <!-- Complaints -->
+
+                    <div class="table-card">
+
+
+                        <div class="table-card-header">
+
+                            <div>
+
+                                <h3>
+                                    Recent Complaints
+                                </h3>
+
+                                <p>
+                                    Latest student complaints
+                                </p>
+
+                            </div>
+
+
+                            <a
+                                href="complaints.html"
+                                class="view-all"
+                            >
+                                View All →
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-wrap">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Student
+                                        </th>
+
+                                        <th>
+                                            Subject
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="complaintsTableBody">
+
+                                    <tr>
+
+                                        <td colspan="3">
+                                            Loading...
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Maintenance -->
+
+                    <div class="table-card">
+
+
+                        <div class="table-card-header">
+
+                            <div>
+
+                                <h3>
+                                    Maintenance
+                                </h3>
+
+                                <p>
+                                    Recent maintenance requests
+                                </p>
+
+                            </div>
+
+
+                            <a
+                                href="maintenance.html"
+                                class="view-all"
+                            >
+                                View All →
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-wrap">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Category
+                                        </th>
+
+                                        <th>
+                                            Room
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="maintenanceTableBody">
+
+                                    <tr>
+
+                                        <td colspan="3">
+                                            Loading...
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Payments -->
+
+                    <div class="table-card">
+
+
+                        <div class="table-card-header">
+
+                            <div>
+
+                                <h3>
+                                    Recent Payments
+                                </h3>
+
+                                <p>
+                                    Latest fee payments
+                                </p>
+
+                            </div>
+
+
+                            <a
+                                href="fees.html"
+                                class="view-all"
+                            >
+                                View All →
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-wrap">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Student
+                                        </th>
+
+                                        <th>
+                                            Amount
+                                        </th>
+
+                                        <th>
+                                            Mode
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="paymentsTableBody">
+
+                                    <tr>
+
+                                        <td colspan="3">
+                                            Loading...
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Notices -->
+
+                    <div class="table-card">
+
+
+                        <div class="table-card-header">
+
+                            <div>
+
+                                <h3>
+                                    Latest Notices
+                                </h3>
+
+                                <p>
+                                    Important hostel updates
+                                </p>
+
+                            </div>
+
+
+                            <a
+                                href="notices.html"
+                                class="view-all"
+                            >
+                                View All →
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-wrap">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Notice
+                                        </th>
+
+                                        <th>
+                                            Priority
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="noticesTableBody">
+
+                                    <tr>
+
+                                        <td colspan="3">
+                                            Loading...
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <p>
+                    © 2026 BK's Hostels
+                </p>
+
+                <span>
+                    Hostel Management System
+                </span>
+
+            </footer>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- Existing Dashboard JS -->
+
+    <script src="js/dashboard.js"></script>
+
+
+
+    <!-- Small UI script -->
+
+    <script>
+
+        /* ---------- Date ---------- */
+
+        const todayDate =
+            document.getElementById("todayDate");
+
+        const now = new Date();
+
+        todayDate.textContent =
+            now.toLocaleDateString(
+                "en-IN",
+                {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+
+
+        /* ---------- Mobile Sidebar ---------- */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                sidebar.classList.toggle(
+                    "show"
+                );
+
+            }
+        );
+
+
+
+        /* ---------- User ---------- */
+
+        const savedUser =
+            localStorage.getItem("user");
+
+
+        if (savedUser) {
+
+            try {
+
+                const user =
+                    JSON.parse(savedUser);
+
+
+                if (user.username) {
+
+                    document.getElementById(
+                        "userName"
+                    ).textContent =
+                        user.username;
+
+                }
+
+
+                if (user.role) {
+
+                    document.getElementById(
+                        "userRole"
+                    ).textContent =
+                        user.role;
+
+                }
+
+            }
+            catch (error) {
+
+                console.log(
+                    "User data error"
+                );
+
+            }
+
+        }
+
+
+
+        /* ---------- Logout ---------- */
+
+        const logoutBtn =
+            document.getElementById("logoutBtn");
+
+
+        logoutBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                localStorage.removeItem(
+                    "token"
+                );
+
+                localStorage.removeItem(
+                    "user"
+                );
+
+                window.location.href =
+                    "index.html#login";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

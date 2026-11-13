@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Dashboard | BK's Hostels</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+
+        .topbar {
+            background: #1f3c88;
+            color: white;
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+
+        .logout-btn {
+            background: white;
+            color: #1f3c88;
+
+            border: none;
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+        .logout-btn:hover {
+            background: #eaf0ff;
+        }
+
+
+        .container {
+            width: 92%;
+            max-width: 1250px;
+
+            margin: 30px auto;
+        }
+
+
+        .welcome-box {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+
+        .welcome-box h1 {
+            margin-bottom: 8px;
+            font-size: 28px;
+            color: #1f3c88;
+        }
+
+
+        .welcome-box p {
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           QUICK INFORMATION
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .card {
+            background: white;
+
+            padding: 22px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+
+        .card h3 {
+            font-size: 15px;
+
+            color: #6b7280;
+
+            margin-bottom: 10px;
+        }
+
+
+        .card strong {
+            font-size: 22px;
+
+            color: #1f3c88;
+        }
+
+
+        /* =========================
+           QUICK ACTIONS
+        ========================= */
+
+        .actions-title {
+            margin-bottom: 15px;
+
+            color: #1f3c88;
+        }
+
+
+        .action-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .action-card {
+            background: white;
+
+            text-decoration: none;
+
+            color: #1f2937;
+
+            padding: 22px;
+
+            border-radius: 14px;
+
+            border: 1px solid #e5e7eb;
+
+            display: block;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+
+        .action-card:hover {
+            transform: translateY(-3px);
+
+            border-color: #1f3c88;
+
+            box-shadow:
+                0 8px 25px rgba(31, 60, 136, 0.15);
+        }
+
+
+        .action-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: #eaf0ff;
+
+            color: #1f3c88;
+
+            font-size: 22px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .action-card h3 {
+            margin-bottom: 6px;
+
+            color: #1f3c88;
+        }
+
+
+        .action-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+
+        .section h2 {
+            margin-bottom: 20px;
+
+            color: #1f3c88;
+        }
+
+
+        .grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 16px;
+        }
+
+
+        .info-box {
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            padding: 16px;
+        }
+
+
+        .info-box span {
+            display: block;
+
+            font-size: 13px;
+
+            color: #6b7280;
+
+            margin-bottom: 7px;
+        }
+
+
+        .info-box strong {
+            font-size: 16px;
+
+            color: #111827;
+        }
+
+
+        .status {
+            display: inline-block;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        .status.active {
+            background: #dcfce7;
+
+            color: #166534;
+        }
+
+
+        .status.none {
+            background: #e5e7eb;
+
+            color: #374151;
+        }
+
+
+        .allocation-message {
+            padding: 18px;
+
+            background: #fff7ed;
+
+            border: 1px solid #fed7aa;
+
+            border-radius: 10px;
+
+            color: #9a3412;
+
+            display: none;
+
+            margin-bottom: 18px;
+        }
+
+
+        .error-message {
+            padding: 15px;
+
+            background: #fee2e2;
+
+            color: #991b1b;
+
+            border-radius: 8px;
+
+            display: none;
+
+            margin-bottom: 20px;
+        }
+
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            color: #6b7280;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .topbar {
+                padding: 15px;
+            }
+
+
+            .container {
+                width: 94%;
+            }
+
+
+            .welcome-box h1 {
+                font-size: 23px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+        BK's Hostels
+    </div>
+
+
+    <button
+        class="logout-btn"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+</header>
+
+
+<main class="container">
+
+
+    <!-- Error -->
+
+    <div
+        id="errorMessage"
+        class="error-message"
+    ></div>
+
+
+    <!-- Welcome -->
+
+    <section class="welcome-box">
+
+        <h1 id="welcomeName">
+            Welcome, Student
+        </h1>
+
+        <p>
+            Welcome to your Student Portal.
+        </p>
+
+    </section>
+
+
+    <!-- Quick Information -->
+
+    <section class="cards">
+
+
+        <div class="card">
+
+            <h3>
+                Username
+            </h3>
+
+            <strong id="username">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Role
+            </h3>
+
+            <strong id="role">
+                STUDENT
+            </strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Account
+            </h3>
+
+            <strong id="accountStatus">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Hostel
+            </h3>
+
+            <strong id="hostelNameCard">
+                -
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- Quick Actions -->
+
+    <h2 class="actions-title">
+        Student Services
+    </h2>
+
+
+    <section class="action-grid">
+
+
+        <!-- Fees -->
+
+        <a
+            href="student-fees.html"
+            class="action-card"
+        >
+
+            <div class="action-icon">
+                💳
+            </div>
+
+            <h3>
+                My Fees
+            </h3>
+
+            <p>
+                View total fees, paid amount,
+                pending amount and payment history.
+            </p>
+
+        </a>
+
+
+        <!-- Attendance -->
+
+        <a
+            href="student-attendance.html"
+            class="action-card"
+        >
+
+            <div class="action-icon">
+                📅
+            </div>
+
+            <h3>
+                Attendance
+            </h3>
+
+            <p>
+                View your attendance records
+                and attendance percentage.
+            </p>
+
+        </a>
+
+
+        <!-- Complaints -->
+
+        <a
+            href="student-complaints.html"
+            class="action-card"
+        >
+
+            <div class="action-icon">
+                📝
+            </div>
+
+            <h3>
+                Complaints
+            </h3>
+
+            <p>
+                Raise and track your hostel
+                complaints.
+            </p>
+
+        </a>
+
+
+        <!-- Maintenance -->
+
+        <a
+            href="student-maintenance.html"
+            class="action-card"
+        >
+
+            <div class="action-icon">
+                🔧
+            </div>
+
+            <h3>
+                Maintenance
+            </h3>
+
+            <p>
+                Submit and track maintenance
+                requests.
+            </p>
+
+        </a>
+
+
+        <!-- Notices -->
+
+        <a
+            href="student-notices.html"
+            class="action-card"
+        >
+
+            <div class="action-icon">
+                📢
+            </div>
+
+            <h3>
+                Notices
+            </h3>
+
+            <p>
+                View important hostel notices
+                and announcements.
+            </p>
+
+        </a>
+
+
+        <!-- Visitors -->
+
+        <a
+            href="student-visitors.html"
+            class="action-card"
+        >
+
+            <div class="action-icon">
+                👥
+            </div>
+
+            <h3>
+                Visitors
+            </h3>
+
+            <p>
+                View your visitor information
+                and visitor history.
+            </p>
+
+        </a>
+
+    </section>
+
+
+    <!-- Profile -->
+
+    <section class="section">
+
+        <h2>
+            My Profile
+        </h2>
+
+
+        <div class="grid">
+
+
+            <div class="info-box">
+
+                <span>
+                    Full Name
+                </span>
+
+                <strong id="fullName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Gender
+                </span>
+
+                <strong id="gender">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Date of Birth
+                </span>
+
+                <strong id="dob">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Mobile
+                </span>
+
+                <strong id="mobile">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Email
+                </span>
+
+                <strong id="email">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    College
+                </span>
+
+                <strong id="college">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Course
+                </span>
+
+                <strong id="course">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Academic Year
+                </span>
+
+                <strong id="academicYear">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Hostel -->
+
+    <section class="section">
+
+        <h2>
+            My Hostel & Room
+        </h2>
+
+
+        <div
+            id="allocationMessage"
+            class="allocation-message"
+        >
+            Room and bed have not been allocated yet.
+        </div>
+
+
+        <div class="grid">
+
+
+            <div class="info-box">
+
+                <span>
+                    Hostel
+                </span>
+
+                <strong id="hostelName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Hostel Type
+                </span>
+
+                <strong id="hostelGender">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Block
+                </span>
+
+                <strong id="blockName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Floor
+                </span>
+
+                <strong id="floorNumber">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Room Number
+                </span>
+
+                <strong id="roomNumber">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Room Type
+                </span>
+
+                <strong id="roomType">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Bed Number
+                </span>
+
+                <strong id="bedNumber">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Allocation Status
+                </span>
+
+                <strong>
+
+                    <span
+                        id="allocationStatus"
+                        class="status none"
+                    >
+                        Not Allocated
+                    </span>
+
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Start Date
+                </span>
+
+                <strong id="startDate">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Guardian -->
+
+    <section class="section">
+
+        <h2>
+            Guardian Information
+        </h2>
+
+
+        <div class="grid">
+
+
+            <div class="info-box">
+
+                <span>
+                    Guardian Name
+                </span>
+
+                <strong id="guardianName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    Guardian Contact
+                </span>
+
+                <strong id="guardianContact">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    BK's Hostels —
+    Student Management System
+
+</footer>
+
+
+
+<script>
+
+
+const token =
+    localStorage.getItem("token");
+
+
+const savedUser =
+    localStorage.getItem("user");
+
+
+// =========================
+// LOGIN CHECK
+// =========================
+
+if (!token) {
+
+    window.location.href =
+        "student-login.html";
+
+}
+
+
+// =========================
+// ROLE CHECK
+// =========================
+
+if (savedUser) {
+
+    try {
+
+        const user =
+            JSON.parse(savedUser);
+
+        if (user.role !== "STUDENT") {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+
+// =========================
+// DATE FORMAT
+// =========================
+
+function formatDate(date) {
+
+    if (!date) {
+        return "-";
+    }
+
+
+    const d =
+        new Date(date);
+
+
+    if (isNaN(d.getTime())) {
+        return date;
+    }
+
+
+    return d.toLocaleDateString(
+        "en-IN"
+    );
+
+}
+
+
+// =========================
+// SET TEXT
+// =========================
+
+function setText(id, value) {
+
+    const element =
+        document.getElementById(id);
+
+
+    if (element) {
+
+        element.textContent =
+            value ??
+            "-";
+
+    }
+
+}
+
+
+// =========================
+// ALLOCATION STATUS
+// =========================
+
+function setAllocationStatus(status) {
+
+    const element =
+        document.getElementById(
+            "allocationStatus"
+        );
+
+
+    if (!element) {
+        return;
+    }
+
+
+    element.textContent =
+        status ||
+        "Not Allocated";
+
+
+    element.className =
+        "status " +
+        (
+            status === "ACTIVE"
+                ? "active"
+                : "none"
+        );
+
+}
+
+
+// =========================
+// LOAD DASHBOARD
+// =========================
+
+async function loadDashboard() {
+
+    try {
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/student-dashboard",
+                {
+                    method: "GET",
+
+                    headers: {
+                        Authorization:
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.message ||
+                "Unable to load dashboard."
+            );
+
+        }
+
+
+        const data =
+            result.data;
+
+
+        // =========================
+        // BASIC DETAILS
+        // =========================
+
+        setText(
+            "welcomeName",
+            `Welcome, ${data.full_name}`
+        );
+
+
+        setText(
+            "username",
+            data.username
+        );
+
+
+        setText(
+            "role",
+            data.role
+        );
+
+
+        setText(
+            "fullName",
+            data.full_name
+        );
+
+
+        setText(
+            "gender",
+            data.gender
+        );
+
+
+        setText(
+            "dob",
+            formatDate(data.dob)
+        );
+
+
+        setText(
+            "mobile",
+            data.mobile
+        );
+
+
+        setText(
+            "email",
+            data.email
+        );
+
+
+        setText(
+            "college",
+            data.college_name
+        );
+
+
+        setText(
+            "course",
+            data.course
+        );
+
+
+        setText(
+            "academicYear",
+            data.academic_year
+        );
+
+
+        // =========================
+        // ACCOUNT
+        // =========================
+
+        setText(
+            "accountStatus",
+            data.is_active
+                ? "Active"
+                : "Inactive"
+        );
+
+
+        // =========================
+        // GUARDIAN
+        // =========================
+
+        setText(
+            "guardianName",
+            data.guardian_name
+        );
+
+
+        setText(
+            "guardianContact",
+            data.guardian_contact
+        );
+
+
+        // =========================
+        // HOSTEL
+        // =========================
+
+        setText(
+            "hostelNameCard",
+            data.hostel_name ||
+            "Not Allocated"
+        );
+
+
+        setText(
+            "hostelName",
+            data.hostel_name ||
+            "Not Allocated"
+        );
+
+
+        setText(
+            "hostelGender",
+            data.hostel_gender ||
+            "-"
+        );
+
+
+        setText(
+            "blockName",
+            data.block_name ||
+            "-"
+        );
+
+
+        setText(
+            "floorNumber",
+            data.floor_number ??
+            "-"
+        );
+
+
+        setText(
+            "roomNumber",
+            data.room_number ||
+            "-"
+        );
+
+
+        setText(
+            "roomType",
+            data.room_type ||
+            "-"
+        );
+
+
+        setText(
+            "bedNumber",
+            data.bed_number ??
+            "-"
+        );
+
+
+        setText(
+            "startDate",
+            formatDate(
+                data.start_date
+            )
+        );
+
+
+        // =========================
+        // ALLOCATION
+        // =========================
+
+        if (
+            data.allocation_status
+        ) {
+
+            setAllocationStatus(
+                data.allocation_status
+            );
+
+        } else {
+
+            setAllocationStatus(
+                "Not Allocated"
+            );
+
+
+            document.getElementById(
+                "allocationMessage"
+            ).style.display =
+                "block";
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Dashboard Error:",
+            error
+        );
+
+
+        const errorBox =
+            document.getElementById(
+                "errorMessage"
+            );
+
+
+        errorBox.textContent =
+            error.message;
+
+
+        errorBox.style.display =
+            "block";
+
+    }
+
+}
+
+
+// =========================
+// LOGOUT
+// =========================
+
+function logout() {
+
+    localStorage.removeItem(
+        "token"
+    );
+
+
+    localStorage.removeItem(
+        "user"
+    );
+
+
+    window.location.href =
+        "student-login.html";
+
+}
+
+
+// =========================
+// COMING SOON
+// =========================
+
+function comingSoon(event) {
+
+    event.preventDefault();
+
+    alert(
+        "This module will be available soon."
+    );
+
+}
+
+
+// =========================
+// START
+// =========================
+
+loadDashboard();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Registration | BK's Hostels</title>
+
+    <link
+        rel="stylesheet"
+        href="css/theme.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/student-auth.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    BK
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>
+                        BK's Hostels
+                    </h2>
+
+                    <span>
+                        Student Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#hostels">
+                    Hostels
+                </a>
+
+                <a href="student-login.html"
+                   class="nav-login-btn">
+                    Student Login
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Registration -->
+
+    <section class="student-auth-section">
+
+        <div class="student-auth-container">
+
+
+            <!-- Information -->
+
+            <div class="student-auth-info">
+
+                <span>
+                    STUDENT PORTAL
+                </span>
+
+                <h1>
+                    Create Your
+                    Student Account
+                </h1>
+
+                <p>
+                    Register with BK's Hostels to access
+                    your student portal. Your registration
+                    will be reviewed by the hostel administrator.
+                </p>
+
+
+                <div class="auth-points">
+
+                    <div>
+                        ✓ Registration reviewed by Admin
+                    </div>
+
+                    <div>
+                        ✓ Secure student account
+                    </div>
+
+                    <div>
+                        ✓ Access hostel services after approval
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Form -->
+
+            <div class="student-auth-card">
+
+                <div class="auth-card-header">
+
+                    <div class="auth-logo">
+                        BK
+                    </div>
+
+                    <h2>
+                        Student Registration
+                    </h2>
+
+                    <p>
+                        Fill in your details below
+                    </p>
+
+                </div>
+
+
+                <form id="studentRegisterForm">
+
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label>
+                                Full Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="full_name"
+                                required
+                                placeholder="Enter full name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Username *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="username"
+                                required
+                                placeholder="Create username"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label>
+                                Password *
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                required
+                                placeholder="Create password"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Confirm Password *
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirm_password"
+                                required
+                                placeholder="Confirm password"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label>
+                                Mobile *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="mobile"
+                                required
+                                placeholder="Enter mobile number"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter email"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label>
+                                Gender *
+                            </label>
+
+                            <select
+                                id="gender"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Gender
+                                </option>
+
+                                <option value="MALE">
+                                    Male
+                                </option>
+
+                                <option value="FEMALE">
+                                    Female
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Date of Birth
+                            </label>
+
+                            <input
+                                type="date"
+                                id="dob"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label>
+                                College
+                            </label>
+
+                            <input
+                                type="text"
+                                id="college_name"
+                                placeholder="College name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Course
+                            </label>
+
+                            <input
+                                type="text"
+                                id="course"
+                                placeholder="e.g. BSc Computer Science"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label>
+                                Academic Year
+                            </label>
+
+                            <input
+                                type="text"
+                                id="academic_year"
+                                placeholder="e.g. 2026-27"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Emergency Contact
+                            </label>
+
+                            <input
+                                type="text"
+                                id="emergency_contact"
+                                placeholder="Emergency number"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-field">
+
+                        <label>
+                            Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="Enter address"
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label>
+                                Guardian Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="guardian_name"
+                                placeholder="Guardian name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Guardian Contact
+                            </label>
+
+                            <input
+                                type="text"
+                                id="guardian_contact"
+                                placeholder="Guardian mobile"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Create Student Account
+                    </button>
+
+
+                    <p
+                        id="registerMessage"
+                        class="auth-message"
+                    ></p>
+
+
+                    <p class="auth-bottom-text">
+
+                        Already registered?
+
+                        <a href="student-login.html">
+                            Student Login
+                        </a>
+
+                    </p>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <script src="js/student-register.js"></script>
+
+</body>
+
+</html>

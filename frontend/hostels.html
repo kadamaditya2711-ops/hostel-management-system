@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hostels | BK's Hostels</title>
+
+    <link rel="stylesheet" href="css/theme.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        .page-hero {
+            padding: 85px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a
+                );
+            color: white;
+        }
+
+        .page-hero-content {
+            max-width: 750px;
+        }
+
+        .page-hero span {
+            color: #93c5fd;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 12px 0 16px;
+        }
+
+        .page-hero p {
+            color: #cbd5e1;
+            font-size: 16px;
+            max-width: 650px;
+        }
+
+        .hostel-overview {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .info-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        }
+
+        .info-box-image {
+            height: 280px;
+        }
+
+        .info-box-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-box-content {
+            padding: 28px;
+        }
+
+        .info-box-tag {
+            color: #2563eb;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .info-box-content h2 {
+            margin: 7px 0 10px;
+            font-size: 27px;
+        }
+
+        .info-box-content p {
+            color: #475569;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .feature-list div {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .feature-list span {
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #dcfce7;
+            color: #16a34a;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .management-box {
+            margin-top: 70px;
+            padding: 35px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 22px;
+        }
+
+        .management-box h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .management-box > p {
+            color: #475569;
+            margin-bottom: 25px;
+        }
+
+        .management-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .management-link {
+            padding: 18px;
+            background: white;
+            border: 1px solid #dbeafe;
+            border-radius: 14px;
+            transition: 0.3s ease;
+        }
+
+        .management-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        }
+
+        .management-link h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .management-link p {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+
+            .hostel-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .management-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .page-hero {
+                padding: 65px 0;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .management-box {
+                padding: 25px 18px;
+            }
+
+            .management-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    BK
+                </div>
+
+                <div class="brand-text">
+                    <h2>BK's Hostels</h2>
+                    <span>Hostel Management System</span>
+                </div>
+
+            </div>
+
+            <nav class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="index.html#about">
+                    About Us
+                </a>
+
+                <a href="index.html#hostels">
+                    Hostels
+                </a>
+
+                <a href="index.html#facilities">
+                    Facilities
+                </a>
+
+                <a href="index.html#gallery">
+                    Gallery
+                </a>
+
+                <a href="index.html#contact">
+                    Contact Us
+                </a>
+
+                <a href="dashboard.html" class="nav-login-btn">
+                    Dashboard
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= PAGE HERO ================= -->
+    <section class="page-hero">
+
+        <div class="container">
+
+            <div class="page-hero-content">
+
+                <span>
+                    BK'S HOSTELS
+                </span>
+
+                <h1>
+                    Our Hostels
+                </h1>
+
+                <p>
+                    BK's Hostels provides safe, comfortable and
+                    student-friendly accommodation with dedicated
+                    facilities for boys and girls.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HOSTEL DETAILS ================= -->
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+                    HOSTEL INFORMATION
+                </span>
+
+                <h2>
+                    Comfortable Living for Students
+                </h2>
+
+                <p>
+                    Explore the accommodation facilities available
+                    at BK's Hostels.
+                </p>
+
+            </div>
+
+
+            <div class="hostel-overview">
+
+
+                <!-- ================= BOYS ================= -->
+                <div class="info-box">
+
+                    <div class="info-box-image">
+
+                        <img
+                            src="images/boys-hostel.jpg"
+                            alt="Boys Hostel"
+                        >
+
+                    </div>
+
+                    <div class="info-box-content">
+
+                        <span class="info-box-tag">
+                            BOYS HOSTEL
+                        </span>
+
+                        <h2>
+                            Boys Hostel
+                        </h2>
+
+                        <p>
+                            A comfortable and secure accommodation
+                            facility designed for male students,
+                            with proper room, bed and study
+                            arrangements.
+                        </p>
+
+
+                        <div class="feature-list">
+
+                            <div>
+                                <span>✓</span>
+                                Comfortable Rooms
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Study Area
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Secure Environment
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Maintenance Support
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="hostel-details.html?type=boys"
+                            class="btn btn-primary"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= GIRLS ================= -->
+                <div class="info-box">
+
+                    <div class="info-box-image">
+
+                        <img
+                            src="images/girls-hostel.jpg"
+                            alt="Girls Hostel"
+                        >
+
+                    </div>
+
+                    <div class="info-box-content">
+
+                        <span class="info-box-tag">
+                            GIRLS HOSTEL
+                        </span>
+
+                        <h2>
+                            Girls Hostel
+                        </h2>
+
+                        <p>
+                            A safe and comfortable accommodation
+                            facility designed for female students,
+                            with essential hostel facilities and
+                            a student-friendly environment.
+                        </p>
+
+
+                        <div class="feature-list">
+
+                            <div>
+                                <span>✓</span>
+                                Comfortable Rooms
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Study Area
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Secure Environment
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Maintenance Support
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="hostel-details.html?type=girls"
+                            class="btn btn-primary"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MANAGEMENT ================= -->
+            <div class="management-box">
+
+                <h2>
+                    Hostel Management
+                </h2>
+
+                <p>
+                    Manage the day-to-day hostel operations
+                    from the management dashboard.
+                </p>
+
+
+                <div class="management-links">
+
+
+                    <a
+                        href="hostel-management.html"
+                        class="management-link"
+                    >
+
+                        <h3>
+                            🏠 Rooms & Beds
+                        </h3>
+
+                        <p>
+                            Manage blocks, floors, rooms and beds.
+                        </p>
+
+                    </a>
+
+
+                    <a
+                        href="allocations.html"
+                        class="management-link"
+                    >
+
+                        <h3>
+                            🛏️ Allocations
+                        </h3>
+
+                        <p>
+                            Allocate beds to students.
+                        </p>
+
+                    </a>
+
+
+                    <a
+                        href="room-transfers.html"
+                        class="management-link"
+                    >
+
+                        <h3>
+                            🔄 Room Transfer
+                        </h3>
+
+                        <p>
+                            Manage student room transfers.
+                        </p>
+
+                    </a>
+
+
+                    <a
+                        href="students.html"
+                        class="management-link"
+                    >
+
+                        <h3>
+                            👨‍🎓 Students
+                        </h3>
+
+                        <p>
+                            Manage hostel student records.
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+    <section class="cta-section">
+
+        <div class="container cta-content">
+
+            <div>
+
+                <span>
+                    BK'S HOSTELS
+                </span>
+
+                <h2>
+                    Safe Stay. Better Experience.
+                </h2>
+
+            </div>
+
+            <a
+                href="index.html#contact"
+                class="btn btn-light"
+            >
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <div class="footer-brand">
+
+                <div class="brand footer-brand-inner">
+
+                    <div class="brand-logo">
+                        BK
+                    </div>
+
+                    <div class="brand-text">
+
+                        <h2>
+                            BK's Hostels
+                        </h2>
+
+                        <span>
+                            Hostel Management System
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p>
+                    Providing a safe, comfortable and smart
+                    hostel management experience for students.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#about">
+                    About Us
+                </a>
+
+                <a href="index.html#hostels">
+                    Hostels
+                </a>
+
+                <a href="index.html#facilities">
+                    Facilities
+                </a>
+
+                <a href="index.html#gallery">
+                    Gallery
+                </a>
+
+                <a href="index.html#contact">
+                    Contact Us
+                </a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Management
+                </h3>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="students.html">
+                    Students
+                </a>
+
+                <a href="hostel-management.html">
+                    Rooms & Beds
+                </a>
+
+                <a href="allocations.html">
+                    Allocations
+                </a>
+
+                <a href="fees.html">
+                    Fees & Payments
+                </a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📍 Nashik, Maharashtra, India
+                </p>
+
+                <p>
+                    👤 Aditya Kadam
+                </p>
+
+                <p>
+                    👤 Mehul Bhosale
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BK's Hostels. All Rights Reserved.
+            </p>
+
+            <p>
+                Hostel Management System
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

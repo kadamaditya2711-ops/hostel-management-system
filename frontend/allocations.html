@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Allocations - Hostel Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+        <div>
+            <h1>Room Allocations</h1>
+            <p>Allocate students to available beds</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+    </div>
+
+
+    <!-- Allocate -->
+    <div class="form-card">
+
+        <h2>Allocate Bed</h2>
+
+        <form id="allocationForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Student</label>
+
+                    <select id="student_id" required>
+                        <option value="">Select Student</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Available Bed</label>
+
+                    <select id="bed_id" required>
+                        <option value="">Select Bed</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Start Date</label>
+
+                    <input
+                        type="date"
+                        id="start_date"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Allocate Bed
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- Current Allocations -->
+    <div class="table-card">
+
+        <h2>Current Allocations</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Hostel</th>
+                        <th>Room</th>
+                        <th>Bed</th>
+                        <th>Start Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="allocationsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/allocations.js"></script>
+
+</body>
+</html>

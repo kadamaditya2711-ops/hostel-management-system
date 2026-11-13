@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Login | BK's Hostels</title>
+
+    <link rel="stylesheet" href="css/theme.css">
+
+    <style>
+
+        .student-login-section {
+            min-height: calc(100vh - 78px);
+
+            display: flex;
+            align-items: center;
+
+            padding: 70px 0;
+
+            background: #f8fafc;
+        }
+
+        .student-login-container {
+            width: min(980px, calc(100% - 40px));
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+
+            background: #fff;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 20px 50px rgba(15,23,42,0.10);
+        }
+
+        .student-login-image {
+            position: relative;
+            min-height: 540px;
+        }
+
+        .student-login-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .student-login-image::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(15,23,42,0.88),
+                    rgba(15,23,42,0.35)
+                );
+        }
+
+        .student-login-overlay {
+            position: absolute;
+
+            left: 38px;
+            right: 38px;
+            bottom: 38px;
+
+            z-index: 2;
+
+            color: white;
+        }
+
+        .student-login-overlay span {
+            color: #93c5fd;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1.7px;
+        }
+
+        .student-login-overlay h1 {
+            margin: 10px 0;
+
+            font-size: 38px;
+            line-height: 1.15;
+        }
+
+        .student-login-overlay p {
+            color: #cbd5e1;
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .student-login-card {
+            padding: 55px 45px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .student-login-logo {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 14px;
+
+            background: #2563eb;
+            color: white;
+
+            font-weight: 800;
+        }
+
+        .student-login-card > span {
+            color: #2563eb;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .student-login-card h2 {
+            margin: 7px 0;
+
+            font-size: 31px;
+        }
+
+        .student-login-card > p {
+            color: #64748b;
+
+            font-size: 12px;
+
+            margin-bottom: 28px;
+        }
+
+        .student-login-form .form-group {
+            margin-bottom: 18px;
+        }
+
+        .student-login-form label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #0f172a;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .student-login-form input {
+            width: 100%;
+            height: 48px;
+
+            padding: 0 14px;
+
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 13px;
+        }
+
+        .student-login-form input:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 4px rgba(37,99,235,0.10);
+        }
+
+        .student-login-submit {
+            width: 100%;
+            height: 48px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #2563eb;
+            color: white;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .student-login-submit:hover {
+            background: #1d4ed8;
+        }
+
+        .student-login-message {
+            min-height: 22px;
+
+            margin-top: 12px;
+
+            text-align: center;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .student-login-message.success {
+            color: #16a34a;
+        }
+
+        .student-login-message.error {
+            color: #dc2626;
+        }
+
+        .student-login-register {
+            margin-top: 22px;
+            padding-top: 18px;
+
+            border-top: 1px solid #e2e8f0;
+
+            text-align: center;
+
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+        .student-login-register a {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        @media (max-width: 800px) {
+
+            .student-login-container {
+                grid-template-columns: 1fr;
+            }
+
+            .student-login-image {
+                min-height: 300px;
+            }
+
+            .student-login-card {
+                padding: 40px 28px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .student-login-container {
+                width: min(100% - 28px, 980px);
+            }
+
+            .student-login-overlay {
+                left: 24px;
+                right: 24px;
+                bottom: 24px;
+            }
+
+            .student-login-overlay h1 {
+                font-size: 29px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    BK
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>
+                        BK's Hostels
+                    </h2>
+
+                    <span>
+                        Student Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="student-register.html">
+                    Register
+                </a>
+
+                <a href="index.html#login"
+                   class="nav-login-btn">
+                    Management Login
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- STUDENT LOGIN -->
+
+    <section class="student-login-section">
+
+        <div class="student-login-container">
+
+
+            <!-- IMAGE -->
+
+            <div class="student-login-image">
+
+                <img
+                    src="images/hostel-exterior.jpg"
+                    alt="BK's Hostels"
+                >
+
+
+                <div class="student-login-overlay">
+
+                    <span>
+                        BK'S HOSTELS
+                    </span>
+
+                    <h1>
+                        Welcome Student
+                    </h1>
+
+                    <p>
+                        Access your hostel information,
+                        fees, attendance, complaints,
+                        notices and other student services.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LOGIN CARD -->
+
+            <div class="student-login-card">
+
+                <div class="student-login-logo">
+                    BK
+                </div>
+
+
+                <span>
+                    STUDENT PORTAL
+                </span>
+
+
+                <h2>
+                    Student Login
+                </h2>
+
+
+                <p>
+                    Login using your approved student account.
+                </p>
+
+
+                <form
+                    id="studentLoginForm"
+                    class="student-login-form"
+                >
+
+
+                    <div class="form-group">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter username"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="student-login-submit"
+                    >
+                        Login to Student Portal
+                    </button>
+
+
+                    <p
+                        id="loginMessage"
+                        class="student-login-message"
+                    ></p>
+
+
+                </form>
+
+
+                <div class="student-login-register">
+
+                    New student?
+
+                    <a href="student-register.html">
+                        Register Here
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="js/student-login.js"></script>
+
+</body>
+
+</html>

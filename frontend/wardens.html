@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wardens - Hostel Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Warden Management</h1>
+            <p>Manage wardens and hostel assignments</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- ADD / UPDATE WARDEN -->
+
+    <div class="form-card">
+
+        <h2 id="formTitle">Add Warden</h2>
+
+        <form id="wardenForm">
+
+            <input
+                type="hidden"
+                id="warden_id">
+
+
+            <div class="form-grid">
+
+                <div>
+                    <label>User ID</label>
+
+                    <input
+                        type="number"
+                        id="user_id"
+                        placeholder="2"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="full_name"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Mobile</label>
+
+                    <input
+                        type="text"
+                        id="mobile"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email">
+                </div>
+
+
+                <div>
+                    <label>Hostel</label>
+
+                    <select id="hostel_id" required>
+
+                        <option value="">
+                            Select Hostel
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button type="submit" id="saveBtn">
+                    Add Warden
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelBtn"
+                    class="secondary-btn hidden">
+                    Cancel
+                </button>
+
+            </div>
+
+
+            <p id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- WARDENS TABLE -->
+
+    <div class="table-card">
+
+        <h2>All Wardens</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Hostel</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="wardensBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/wardens.js"></script>
+
+</body>
+</html>

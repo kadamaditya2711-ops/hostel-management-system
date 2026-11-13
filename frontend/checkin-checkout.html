@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Check-In / Check-Out</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Student Check-In / Check-Out</h1>
+            <p>Manage student hostel entry and exit records</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         CHECK-IN
+    ========================== -->
+
+    <div class="form-card">
+
+        <h2>Student Check-In</h2>
+
+        <form id="checkinForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Student</label>
+
+                    <select id="checkin_student" required>
+                        <option value="">
+                            Select Student
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Allocation</label>
+
+                    <select id="checkin_allocation" required>
+                        <option value="">
+                            Select Allocation
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Academic Year</label>
+
+                    <input
+                        type="text"
+                        id="academic_year"
+                        value="2026-27"
+                        required>
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Check-In Student
+            </button>
+
+            <p id="checkinMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- =========================
+         CHECK-OUT
+    ========================== -->
+
+    <div class="form-card">
+
+        <h2>Student Check-Out</h2>
+
+        <form id="checkoutForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Student</label>
+
+                    <select id="checkout_student" required>
+                        <option value="">
+                            Select Student
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Allocation</label>
+
+                    <select id="checkout_allocation" required>
+                        <option value="">
+                            Select Allocation
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Reason</label>
+
+                    <input
+                        type="text"
+                        id="reason"
+                        placeholder="Course completed"
+                        required>
+                </div>
+
+                <div>
+                    <label>Fee Clearance</label>
+
+                    <select id="fee_clearance" required>
+
+                        <option value="false">
+                            Pending
+                        </option>
+
+                        <option value="true">
+                            Cleared
+                        </option>
+
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group-full">
+
+                <label>Remarks</label>
+
+                <textarea
+                    id="remarks"
+                    rows="3"
+                    placeholder="Optional remarks">
+                </textarea>
+
+            </div>
+
+
+            <button type="submit">
+                Check-Out Student
+            </button>
+
+            <p id="checkoutMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- =========================
+         CHECK-IN HISTORY
+    ========================== -->
+
+    <div class="table-card">
+
+        <h2>Check-In History</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Allocation</th>
+                        <th>Check-In Date</th>
+                        <th>Academic Year</th>
+                        <th>Verified By</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="checkinsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CHECK-OUT HISTORY
+    ========================== -->
+
+    <div class="table-card">
+
+        <h2>Check-Out History</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Allocation</th>
+                        <th>Checkout Date</th>
+                        <th>Reason</th>
+                        <th>Fee Clearance</th>
+                        <th>Approved By</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="checkoutsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/checkin-checkout.js"></script>
+
+</body>
+</html>

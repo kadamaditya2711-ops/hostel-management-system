@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance - Hostel Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Attendance Management</h1>
+            <p>Mark and view student attendance</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- Mark Attendance -->
+
+    <div class="form-card">
+
+        <h2>Mark Attendance</h2>
+
+        <form id="attendanceForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Student</label>
+
+                    <select id="student_id" required>
+                        <option value="">
+                            Select Student
+                        </option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>Attendance Date</label>
+
+                    <input
+                        type="date"
+                        id="attendance_date"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Status</label>
+
+                    <select id="status" required>
+
+                        <option value="">
+                            Select Status
+                        </option>
+
+                        <option value="PRESENT">
+                            PRESENT
+                        </option>
+
+                        <option value="ABSENT">
+                            ABSENT
+                        </option>
+
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group-full">
+
+                <label>Remarks</label>
+
+                <textarea
+                    id="remarks"
+                    rows="3"
+                    placeholder="Optional remarks">
+                </textarea>
+
+            </div>
+
+
+            <button type="submit">
+                Mark Attendance
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- Attendance History -->
+
+    <div class="table-card">
+
+        <h2>Attendance History</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Remarks</th>
+                        <th>Marked By</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="attendanceBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/attendance.js"></script>
+
+</body>
+</html>

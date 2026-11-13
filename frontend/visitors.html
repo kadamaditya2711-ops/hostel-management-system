@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Visitors - Hostel Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+        <div>
+            <h1>Visitor Management</h1>
+            <p>Manage visitors, check-in and check-out</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+    </div>
+
+
+    <!-- ADD VISITOR -->
+
+    <div class="form-card">
+
+        <h2>Add Visitor</h2>
+
+        <form id="visitorForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Full Name</label>
+                    <input
+                        type="text"
+                        id="full_name"
+                        required>
+                </div>
+
+                <div>
+                    <label>Mobile</label>
+                    <input
+                        type="text"
+                        id="mobile"
+                        required>
+                </div>
+
+                <div>
+                    <label>Relation</label>
+                    <input
+                        type="text"
+                        id="relation"
+                        placeholder="Brother / Father / Friend"
+                        required>
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Add Visitor
+            </button>
+
+            <p id="visitorMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- CHECK IN -->
+
+    <div class="form-card">
+
+        <h2>Visitor Check-In</h2>
+
+        <form id="checkinForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Visitor</label>
+
+                    <select id="visitor_id" required>
+                        <option value="">
+                            Select Visitor
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Student</label>
+
+                    <select id="student_id" required>
+                        <option value="">
+                            Select Student
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Purpose</label>
+                    <input
+                        type="text"
+                        id="purpose"
+                        placeholder="Meeting"
+                        required>
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Check-In Visitor
+            </button>
+
+            <p id="checkinMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- VISITOR LOGS -->
+
+    <div class="table-card">
+
+        <h2>Visitor Logs</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Visitor</th>
+                        <th>Student</th>
+                        <th>Purpose</th>
+                        <th>Check-In</th>
+                        <th>Check-Out</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="visitorLogsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/visitors.js"></script>
+
+</body>
+</html>

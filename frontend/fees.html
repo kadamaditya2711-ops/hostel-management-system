@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fees & Payments</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+        <div>
+            <h1>Fees & Payments</h1>
+            <p>Manage student fees and payment records</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+    </div>
+
+
+    <!-- Fee Records -->
+
+    <div class="table-card">
+
+        <h2>Student Fee Records</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Academic Year</th>
+                        <th>Total Fee</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Option</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="feesBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- Record Payment -->
+
+    <div class="form-card">
+
+        <h2>Record Payment</h2>
+
+        <form id="paymentForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Fee Record</label>
+
+                    <select id="student_fee_id" required>
+                        <option value="">
+                            Select Fee Record
+                        </option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>Installment No.</label>
+
+                    <input
+                        type="number"
+                        id="installment_no"
+                        min="1"
+                        value="1"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Amount</label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        min="1"
+                        placeholder="15000"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Payment Mode</label>
+
+                    <select id="payment_mode" required>
+
+                        <option value="">
+                            Select Mode
+                        </option>
+
+                        <option value="CASH">
+                            CASH
+                        </option>
+
+                        <option value="CHEQUE">
+                            CHEQUE
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>Receipt No.</label>
+
+                    <input
+                        type="text"
+                        id="receipt_no"
+                        placeholder="REC-2026-0002"
+                        required>
+                </div>
+
+
+                <div>
+                    <label>Transaction / Cheque Ref.</label>
+
+                    <input
+                        type="text"
+                        id="transaction_ref"
+                        placeholder="Optional">
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Record Payment
+            </button>
+
+            <p id="paymentMessage"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- Payment History -->
+
+    <div class="table-card">
+
+        <h2>Payment History</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Installment</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Mode</th>
+                        <th>Receipt</th>
+                    </tr>
+                </thead>
+
+                <tbody id="paymentsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/fees.js"></script>
+
+</body>
+</html>

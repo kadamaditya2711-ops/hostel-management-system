@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Room Transfer - Hostel Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Room Transfer</h1>
+            <p>Transfer students to another available bed</p>
+        </div>
+
+        <button id="backBtn" class="secondary-btn">
+            Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- TRANSFER FORM -->
+
+    <div class="form-card">
+
+        <h2>Transfer Student</h2>
+
+        <form id="transferForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Student</label>
+
+                    <select id="student_id" required>
+                        <option value="">
+                            Select Student
+                        </option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>New Available Bed</label>
+
+                    <select id="new_bed_id" required>
+                        <option value="">
+                            Select Bed
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group-full">
+
+                <label>Transfer Reason</label>
+
+                <textarea
+                    id="reason"
+                    rows="3"
+                    placeholder="Room change requested by student"
+                    required>
+                </textarea>
+
+            </div>
+
+
+            <button type="submit">
+                Transfer Student
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- TRANSFER HISTORY -->
+
+    <div class="table-card">
+
+        <h2>Transfer History</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Old Bed</th>
+                        <th>New Bed</th>
+                        <th>Date</th>
+                        <th>Reason</th>
+                        <th>Approved By</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="transfersBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/room-transfers.js"></script>
+
+</body>
+</html>
